@@ -1,0 +1,77 @@
+.visually-hidden        визуально скрывает контент (остается доступен для скринридер)
+.visually-hidden-focusable      элемент управления станет видимым после фокусировки (для зрячих пользователей клавиатуры)
+@include rfs(4rem, border-radius)  rfs-value()  rfs-fluid-value()       модуль изменения размера (отзывчивый размер)
+data-bs-theme="light"  data-bs-theme="dark"    темная и светлая темы. применять к родителю  или <html> 
+.container        .container-{breakpoint}  width: 100% до указанной контрольной точки          .container-fluid  width: 100% во всех контрольных точках
+
+.row     .col-sm(md lg xl xxl)-12              col-sm(md lg xl xxl)-auto    для  подстройки ширины колонки под ширину контента           .col   перечисляем без размера если колонки будут одинаковой ширины
+.gx-*   .gy-*   .g-*    промежутки между колонок  горизонтальные    вертикальные    все           g-0 - обнуление промежутка   g-lg-3  адаптивные промежутки
+.row-cols-*   установить количество столбцов            row row-cols-auto колонки по содержимому    row row-cols-3 три колонки лишние переносятся на новую строку
+.align-items-start  .align-items-center    .align-items-end     выравнивание колонок в строке
+.align-self-start   .align-self-center     .align-self-end      выравнивание каждого столбца по отдельности
+.justify-content-*    горизонтальное выравнивание. колонки по ширине должны быть меньше контейнера 
+Если в одной строке помещается более 12 колонок, каждая группа дополнительных колонок, как одно целое, переносится на новую строку.
+добавьте элемент с width: 100% везде, где Вы хотите перенести колонки на новую строку.
+также можете применить этот разрыв в определенных контрольных точках       <div class="w-100 d-none d-md-block"></div>
+.offset-md-*    Переместите колонки вправо, классы увеличивают левое поле колонки на колонки *.   .offset-md-4 перемещает .col-md-4 на четыре колонки.
+.me-auto     утилиты полей,  чтобы отодвинуть одноуровневые столбцы друг от друга.
+.col-* также могут использоваться вне .row, чтобы дать элементу определенную ширину.
+display    .d-sm-flex    и пр.
+.text-truncate   заменяет текст многоточием   Требуется display: inline-block или display: block
+.img-fluid адаптивность изображения     .img-thumbnail округлая граница    
+.link-*   link-warning     для раскрашивания ссылок. имеют состояния :hover и :focus
+.text-bg-*  .text-bg-primary      контрастный фон и текст
+.focus-ring удаляет outline по умолчанию для :focus, заменяя его box-shadow  Новая тень состоит из ряда переменных CSS, унаследованных от уровня :root, которые можно изменить для любого элемента или компонента.
+.icon-link   .icon-link-hover    ссылки на иконку изменяет стили ссылок по умолчанию, улучшая их внешний вид и быстро выравнивая любое сочетание иконки и текста.
+.fixed-top  .fixed-top  .sticky-top  .sticky-bottom   для быстрой настройки положения элемента
+.ratio      для управления соотношением сторон внешнего контента,
+.vstack для создания вертикальных макетов.  .gap-* для добавления пробелов между элементами.
+.hstack для горизонтальных макетов.     .gap-* для добавления пробелов между элементами.
+.stretched-link         растянутая ссылка   к ссылке, чтобы сделать ее содержащий блок доступным для кликов через псевдоэлемент ::after    .position-relative, чтобы предотвратить растяжение ссылки за пределы родительского элемента.
+.bg-*     Фоновый цвет
+.bg-gradient        Фоновый градиент
+.border-top    создание границ      border-top-0   удаление границ    border-danger  цвет границ    border-1   ширина      rounded-bottom-1    скругление с коэфициентом
+.text-danger    цвет текста\
+.d-inline-flex      .flex-column        .justify-content-sm-between     .align-content-center      .align-items-md-start       .align-self-lg-start
+.flex-fill для серии родственных элементов, чтобы заставить их ширину равную их содержимому (или равную ширину, если их содержимое не превышает их границы), занимая при этом все доступное горизонтальное пространство.
+.flex-grow-1     flex-shrink-1       
+.me-auto  выталкивание друхих флекс-элементов вправо        .ms-auto  влево    работает и с flex-derection: colum  по вертикали
+.flex-wrap-reverse   
+.order принимает любое целочисленное значение от 0 до 5   .order-first и .order-last   адаптивные классы 
+.user-select-all   user-select-auto    user-select-none    выделение текста разрешает выделять все. частично . запрещает выделение
+.pe-none и .pe-auto     запрет взаимодействия с элементами
+.link-underline-danger   цвет подчеркивания ссылки. 
+.link-offset-1       расстояние подчеркивания от вашего текста.
+.object-fit-{value}   object-fit-sm-contain     contain cover fill scale (для уменьшения) none   для изображения и видео
+.opacity-50    прозрачность
+.overflow-x    переполнение (скрол)   overflow-auto   overflow-hidden   overflow-visible   overflow-scroll
+.position-relative  и пр позиции позиционирования   .position-absolute bottom-50 end-50  .translate-middle (применяет  translateX(-50%) и translateY(-50%) )   .position-absolute top-0 start-50 translate-middle-x
+.shadow-none тени 3 варианта shadow-sm  shadow   shadow-lg
+class="w-50 ">Ширина 50%   ширина    mw-100  максимальная ширина
+class="h-75   высота 75%             mh-100  максимальная высота
+m  margin       t   b   s   e   y    x      размер от 1-5   + auto   {property}{sides}-{breakpoint}-{size}
+p  padding      t   b   s   e   y    x      размер от 1-5   + auto   {property}{sides}-{breakpoint}-{size}
+.mx-auto    горизонтальное центрирование
+.gap   .row-gap   .column-gap  отступы колонок во влексах и гридах значения от 0-5
+.text-star  text-lg-end     выравнивание текста
+.text-wrap    .text-nowrap   перенос текста
+.text-break   перенос слова
+.text-lowercase    .text-uppercase    .text-capitalize   изменяет только первую букву каждого слова
+.fst-*   font-style       .fst-italic
+.fw-*    font-weight      .fw-bold
+.lh-*    Высота линии     
+.text-reset    сброс цвета текста
+.text-decoration-underline    .text-decoration-line-through     .text-decoration-none    
+.align-baseline    .align-top    .align-middle    .align-bottom    .align-text-bottom     .align-text-top     выравнивание по вертикали
+.visible или .invisible.    видимость . при скрытии место остается ..  не доступен для пользователя
+.z-3     z-index
+
+
+
+
+
+
+
+
+
+
