@@ -5,6 +5,7 @@ https://placehold.co/                     Шаблонные (плейсхолд
 https://inkscape.org/                     Векторный редактор
 https://caniuse.com/                      Проверка поддержки свойств
 https://www.fontconverter.io/en           конвертируем шрифт    в css шрифта пишем адекватное название задаем font-style: ; font-weight: 
+https://fontello.com/                     иконочные шрифты
 
 Alt+Z            Переключить перенос текста
 Ctrl + /         Закомментировать код
@@ -68,7 +69,7 @@ element::before {
     background-image: url("");
     background-size: contain;                 
     background-repeat: no-repeat;
-    background-position: center;   }z
+    background-position: center;   }
 
 Блок__элем_модиф  блок используем многократно, не задаем внешних отступов. элемент неотемлемая часть текущего блока. элементу возможно задавать через дефис имена родители и затем свое имя. блоки вкладываются в другие блоки и добавляется класс.  модификатор можно добавить и блоку и элементу. у модификатора возможно добавить еще параметры. 
 
