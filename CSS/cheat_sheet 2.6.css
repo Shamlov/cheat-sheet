@@ -7,14 +7,15 @@ https://caniuse.com/                      Проверка поддержки с
 https://www.fontconverter.io/en           конвертируем шрифт    в css шрифта пишем адекватное название задаем font-style: ; font-weight: 
 https://fontello.com/                     иконочные шрифты
 
-Alt+Z            Переключить перенос текста
+Alt + Z          Переключить перенос текста
 Ctrl + /         Закомментировать код
 Shift + Alt + F  Pritter
 Alt              Множественный ввод
 проб + Ctrl      Подсказка
-Ctrl + d         Обернуть в тег
+Alt + w          Обернуть в тег
 Ctrl + h         найти и заменить
 Ctrl + Alt + T   перевод
+Ctrl + наведение мышью  в HTML покажет какие css свойства применены
 
 
 [header nav] [main section] aside footer
