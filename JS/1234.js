@@ -203,9 +203,16 @@
 // } 
 
 
-// массивы 
-// const myArray1 = [1, 2, 3] 
-// console.log(myArray1)    // myArray1 не равно myArray2  хоть и внешне одинаковы. но это тоже объекты и переменные содержат ссылки на место в памяти  
+// массивы
+const myArray = [1, 3, true, 'привет']
+console.log(myArray)
 
-// const myArray2 = new Array(1, 2, 3)
-// console.log(myArray2)
+const myArray1 = new Array(1, 3, true, 'привет')
+console.log(myArray1)
+
+console.log(myArray.length) // так получим длинну массива . она  обновляется автоматически
+console.log(myArray == myArray1) //  fulse   внешне массивы одинаковы . но это ссылки объекты и ссылаються на разные объекты 
+
+const myArray3 = myArray2 
+console.log(myArray3 == myArray2)  // true т.к. тут сравниваем ссылки на массивы (объекты) . и ссылки ссылаютя на один и тот же массив (объект)
+// -------------------------------------------------------------------------------------
