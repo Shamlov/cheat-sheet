@@ -66,3 +66,29 @@ function delegirovanie (event) {              // функция проверки
 btnBlock.addEventListener('click', delegirovanie)  // назначим обработчик на родителя круппы кнопок
 
 
+document.createElement(tag)           // cоздаёт новый элемент с заданным тегом.
+el.outerHTML = 'dobavit html el'      // содержаться открывающий и закрывающий тег самого элемента. считать содержимое элемента в виде HTML-строки или установить новый HTML. нельзя передать DOM-элемент. перерисовка страницы. 
+el.innerHTML = 'dobavit html el'      // не содержаться открывающий и закрывающий тег самого элемента. считать содержимое элемента в виде HTML-строки или установить новый HTML. нельзя передать DOM-элемент. перерисовка страницы. 
+el.className = 'nameClass'            // добавление класса в html
+el.innerText = 'dobavit text v teg'   // считывать или задавать текстовое содержимое элемента. возвращается строка с текстовым содержимым всех вложенных дочерних элементов. не считывается тег <script> и <style> и скрытых элементов.
+el.textContent = 'dobavit text v teg' // считывать или задавать текстовое содержимое элемента. вернет текст всех вложенных элементов, даже если скрыты CSS .
+el.style.cssText = 'color: blue; border: 1px solid black'  // получает и устанавливает инлайновые стили элемента, т.е. в HTML
+
+node.append(...nodes or strings)      // добавляет узлы или строки в конец node,
+node.prepend(...nodes or strings)     // вставляет узлы или строки в начало node,
+node.before(...nodes or strings)      // вставляет узлы или строки до node,
+node.after(...nodes or strings)       // вставляет узлы или строки после node,
+node.replaceWith(...nodes or strings) // заменяет node заданными узлами или строками.
+
+node.firstElementChild         // прямой доступ к первому  дочернему элементу
+node.lastElementChild          // прямой доступ к последнему дочернему элементу
+node.previousElementSibling    // содержит предыдущий элемент, находящийся в этом же родителе
+node.nextElementSibling        // содержит следующий элемент, находящийся в этом же родителе.
+
+elem.insertAdjacentHTML('куда', 'html')  // вставлять произвольный HTML в любое место документа, в том числе и между узлами!
+beforeBegin  // перед elem.
+afterBegin   // внутрь elem, в самое начало.
+beforeEnd    // внутрь elem, в конец.
+afterEnd     // после elem.
+
+
