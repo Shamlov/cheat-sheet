@@ -66,16 +66,19 @@ function delegirovanie (event) {              // функция проверки
 btnBlock.addEventListener('click', delegirovanie)  // назначим обработчик на родителя круппы кнопок
 
 
-document.createElement('tag')           // cоздаёт новый элемент с заданным тегом.
+document.createElement('tag')         // cоздаёт новый элемент с заданным тегом.
+el.remove()                           // удаляет элемент из DOM-дерева, в котором он находится.
+el.setAttribute('data-attribute-name', 'attribute-value');  // добавляет data - атребут и значение
 el.outerHTML = 'dobavit html el'      // содержаться открывающий и закрывающий тег самого элемента. считать содержимое элемента в виде HTML-строки или установить новый HTML. нельзя передать DOM-элемент. перерисовка страницы. 
 el.innerHTML = 'dobavit html el'      // не содержаться открывающий и закрывающий тег самого элемента. считать содержимое элемента в виде HTML-строки или установить новый HTML. нельзя передать DOM-элемент. перерисовка страницы. 
 el.className = 'nameClass'            // добавление класса в html
+el.id = 'uniqueId'                    // добавление id в html
 el.innerText = 'dobavit text v teg'   // считывать или задавать текстовое содержимое элемента. возвращается строка с текстовым содержимым всех вложенных дочерних элементов. не считывается тег <script> и <style> и скрытых элементов.
 el.textContent = 'dobavit text v teg' // считывать или задавать текстовое содержимое элемента. вернет текст всех вложенных элементов, даже если скрыты CSS .
 el.style.cssText = 'color: blue; border: 1px solid black'  // получает и устанавливает инлайновые стили элемента, т.е. в HTML
 el.classList.contains     ///////////////
 el.classList.toggle  /////////////////////////////////////////
-
+elCheckbox.checked                    // проверка выбора чекбокса. возможные значения: true / false
 node.append(...nodes or strings)      // добавляет узлы или строки в конец node,
 node.prepend(...nodes or strings)     // вставляет узлы или строки в начало node,
 node.before(...nodes or strings)      // вставляет узлы или строки до node,
@@ -92,5 +95,98 @@ beforeBegin  // перед elem.
 afterBegin   // внутрь elem, в самое начало.
 beforeEnd    // внутрь elem, в конец.
 afterEnd     // после elem.
+
+//Асинхронные функции возвращают объект Promise в качестве значения.  есть методы then() и catch()
+then()    // выполнить код после успешного выполнения асинхронной операции.
+catch()   // выполнить код в случае ошибки при выполнении асинхронной операции.
+finally() // выполнить код при завершении асинхронной операции. будет выполнен вне зависимости от того, была ли операция успешной или завершилась ошибкой.
+
+Promise.all()         // all() используют, когда нужно запустить несколько промисов параллельно и дождаться их выполнения.
+Promise.allSettled()  // allSettled() ждёт выполнения всех промисов, при этом неважно, завершились они успешно или с ошибкой.
+Promise.race()        // race() используют, чтобы запустить несколько промисов и дождаться того, который выполнится быстрее.
+Promise.any()         // any() когда нужно запустить несколько промисов параллельно и дождаться первого успешного разрешённого.
+
+function run1() {
+    const data123 = new Promise ((resolve, reject) => {
+        setTimeout(()=> {
+            const data1 = {id: 1 , user: 'Alex';}
+            resolve (dada1)
+            // resolve - успешно    reject - ошибка
+        }, 1000)
+    })
+    console.log(data123)           // возвращают объект Promise в качестве значения.
+    data123.then((myData) => {     // сюда придет resolve (dada1) или reject. функция вызывается тогда. когда вызовется resolve (dada1) выше . т.е. пока не выполняется
+        console.log(myData)        // получим уже массив data1 = {id: 1 , user: 'Alex';}
+    })   
+}
+run1()
+
+
+function fetshData1() {                                    // вынесем отдельно создание промиса например для пользователя.
+    return new Promise ((resolve, reject) => {             // сразу возвращаем промис без переменных. можно использоапть переменные
+        setTimeout(()=> {
+            const data111 = {id: 1 , user: 'Alex';}
+            resolve (dada111)
+        }, 1000)
+    })
+}
+
+function fetshGame11(userId) {                                   // вынесем отдельно создание промиса например для игр пользователя
+    return new Promise ((resolve, reject) => {             // сразу возвращаем промис без переменных. можно использоапть переменные
+        setTimeout(()=> {
+            const game11 =['game1', 'game2',]
+            resolve (dada111)
+        }, 1000)
+    })
+}
+
+function run222() {
+    fetshData1()                    // ниже идет цепочка промисов
+        .then((myDada111) => {      // сюда придет resolve (dada111) или reject. функция вызывается тогда. когда вызовется resolve (dada111) выше . т.е. пока не выполняется
+            console.log(myDada111)  // получим уже массив data111 = {id: 1 , user: 'Alex';}
+            return fetshGame11(myDada111.id )  // тут myDada111 объект и можем обратиться к объекту и получить id пользователя . вернется снова промис
+        })    
+        .then((myGame234) => {
+            console.log(myGame234)    // получим массив игр
+        })     
+        
+    
+}
+run222()
+
+// запросы на сервер
+fetch('https://...', {method: 'GET'})   // отправлять и получать сетевые запросы с сервера. Возвращает промис с объектом ответа.
+fetch('https://...', {method: 'GET'}).then((test) => {console.log(test)})   // then для обработки запроса
+fetch('https://...', {method: 'GET'}   
+).then((data) => {
+    return data.json()   // т.к. возвращает промис. ниже обрабатываем верез then
+}).then((info) => {
+    console.log(info)    // в info получим данные которые передает сервер
+})
+
+GET      // получить данные с сервера 
+POST     // изменить данные с сервера  {method: 'GET', body: переменая с соxраняемыми данными,}
+DELETE   // удалить данные с сервера 
+PUT      // изменить данные с сервера  {method: 'GET', body: переменая с соxраняемыми данными,}
+
+                   href // query params js
+        origin
+                  host
+protocol   hostname   port  pathname    search    hash
+ https: // site.com : 8080  path/page   ?p1=v1    #hash            
+url?ключ=значение1&значение2 
+
+try {    // отлавливание ошибок . работает только с синхронным кодом
+    // запишем код который может отработать с ошибкой
+} catch(error) {         // error (error) опционально.  console.dir(error) получаем информацию о текущей ошибке
+    // код выполниться если в try ошибка
+}
+
+function test() {
+    throw 'тут текст ошибки'    // throw необходим для выкидываеия ошибки и приостановки выполнения функции и последующего кода. типа return
+}
+
+
+
 
 
