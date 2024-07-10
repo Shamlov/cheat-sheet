@@ -187,7 +187,9 @@ function test() {
 }
 
 async function getData() {       // делает функцию асинхронной,  значение такой функции автоматически оборачивается в Promise:
-    const response = await fetch(`https://swapi.dev/api/films/${id}/`)     // слово await используется, чтобы дождаться выполнения асинхронной операции.
+    const response = await fetch(`https://swapi.dev/api/films/${id}/`).catch((error)) => {
+        console.log('ошибка', error)   // т.к. это промис добавив еще  .catch  можем обработать ошибкумтаким образом
+    }     // слово await используется, чтобы дождаться выполнения асинхронной операции.
     const data = await  response.json()
     console.log(data)   // получим данные с сервера
     // return response.json()      // функция вернет промис
